@@ -10,8 +10,8 @@ import yolov7
 import tempfile
 #sys.path.append("yolov7")
 
-model_yolov8 = "models/yolov8/weights/fire_model.pt"
-model_yolov7 = "models/yolov7/runs/train/exp/weights/best.pt"
+model_yolov8 = "fire_model.pt"
+model_yolov7 = "best.pt"
 
 st.set_page_config(
     page_title="Forest Fire and Smoke Detection",
