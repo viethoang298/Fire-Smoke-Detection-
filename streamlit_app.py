@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 with st.sidebar:
-    model_selection = st.selectbox("Choose a model:", ["YOLOv8", "YOLOv7"]) #  
+    model_selection = "YOLOv8" 
     # Model selection dropdown
     st.header("Image Config")
     uploaded_file = st.file_uploader(
@@ -39,8 +39,8 @@ st.title("Fire and Smoke Detection using YOLOv8 & YOLOv7")
 st.caption("a Project for MSc in Business Analytics (AUEB) - Machine Learning and Content Analytics 2023")
 with st.expander("Model Characteristics"):
     chars_alt = pd.DataFrame({
-        "Param": ["Dataset", "Images", "Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
-        "Value": ["https://universe.roboflow.com/kirzone/fire-iejes/dataset/2", 1706, 30, 640, 20, 0.01]
+        "Param": ["Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
+        "Value": [30, 640, 20, 0.01]
     })
     st._legacy_table(chars_alt)
 
@@ -63,8 +63,8 @@ def load_yolov8_model():
     return YOLO(model_yolov8)
 
 @st.cache_resource
-def load_yolov7_model():
-    return yolov7.load(model_yolov7)
+#def load_yolov7_model():
+#    return yolov7.load(model_yolov7)
 
 # Load model based on user selection
 if model_selection == "YOLOv8":
@@ -74,12 +74,12 @@ if model_selection == "YOLOv8":
     except Exception as ex:
         st.error(f"Unable to load YOLOv8 model. Check the specified path: {model_yolov8}")
         st.error(ex)
-elif model_selection == "YOLOv7":
-    try:
-        model = load_yolov7_model()
-    except Exception as ex:
-        st.error(f"Unable to load YOLOv7 model. Check the specified path: {model_yolov7}")
-        st.error(ex)
+#elif model_selection == "YOLOv7":
+#    try:
+#        model = load_yolov7_model()
+#    except Exception as ex:
+#        st.error(f"Unable to load YOLOv7 model. Check the specified path: {model_yolov7}")
+#        st.error(ex)
 
 def process_image_detections(res, col2, model_selection):
     if model_selection == "YOLOv8":
