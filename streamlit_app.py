@@ -10,8 +10,8 @@ import yolov7
 import tempfile
 #sys.path.append("yolov7")
 
-model_yolov8 = "fire_model.pt"
-#model_yolov7 = "best.pt"
+model_yolov8 = "models/yolov8/weights/fire_model.pt"
+model_yolov7 = "models/yolov7/runs/train/exp/weights/best.pt"
 
 st.set_page_config(
     page_title="Forest Fire and Smoke Detection",
@@ -39,8 +39,8 @@ st.title("Fire and Smoke Detection using YOLOv8 & YOLOv7")
 st.caption("a Project for MSc in Business Analytics (AUEB) - Machine Learning and Content Analytics 2023")
 with st.expander("Model Characteristics"):
     chars_alt = pd.DataFrame({
-        "Param": ["Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
-        "Value": [30, 640, 20, 0.01]
+        "Param": ["Dataset", "Images", "Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
+        "Value": ["https://universe.roboflow.com/kirzone/fire-iejes/dataset/2", 1706, 30, 640, 20, 0.01]
     })
     st._legacy_table(chars_alt)
 
@@ -63,11 +63,10 @@ def load_yolov8_model():
     return YOLO(model_yolov8)
 
 @st.cache_resource
-#def load_yolov7_model():
-#    return yolov7.load(model_yolov7)
+def load_yolov7_model():
+    return yolov7.load(model_yolov7)
 
 # Load model based on user selection
-
 if model_selection == "YOLOv8":
     try:
 
@@ -213,4 +212,3 @@ if st.sidebar.button("Detect Objects"):
             else:
                 with open(processed_video_path, "rb") as f:
                     st.video(f.read())
-
