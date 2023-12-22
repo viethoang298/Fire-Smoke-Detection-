@@ -36,7 +36,7 @@ with st.sidebar:
     confidence = float(st.slider("Select Model Confidence", 15, 100, 20)) / 100
 
 st.title("Fire and Smoke Detection using YOLOv8 ")
-st.caption("a Project for MSc in Business Analytics (AUEB) - Machine Learning and Content Analytics 2023")
+#st.caption("a Project for MSc in Business Analytics (AUEB) - Machine Learning and Content Analytics 2023")
 with st.expander("Model Characteristics"):
     chars_alt = pd.DataFrame({
         "Param": ["Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
