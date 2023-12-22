@@ -11,7 +11,7 @@ import tempfile
 #sys.path.append("yolov7")
 
 model_yolov8 = "fire_model.pt"
-model_yolov7 = "best.pt"
+#model_yolov7 = "best.pt"
 
 st.set_page_config(
     page_title="Forest Fire and Smoke Detection",
@@ -67,6 +67,7 @@ def load_yolov8_model():
 #    return yolov7.load(model_yolov7)
 
 # Load model based on user selection
+model_selection = "YOLOv8"
 if model_selection == "YOLOv8":
     try:
 
