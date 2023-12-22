@@ -35,12 +35,12 @@ with st.sidebar:
 
     confidence = float(st.slider("Select Model Confidence", 15, 100, 20)) / 100
 
-st.title("Fire and Smoke Detection using YOLOv8 & YOLOv7")
+st.title("Fire and Smoke Detection using YOLOv8 ")
 st.caption("a Project for MSc in Business Analytics (AUEB) - Machine Learning and Content Analytics 2023")
 with st.expander("Model Characteristics"):
     chars_alt = pd.DataFrame({
-        "Param": ["Dataset", "Images", "Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
-        "Value": ["https://universe.roboflow.com/kirzone/fire-iejes/dataset/2", 1706, 30, 640, 20, 0.01]
+        "Param": ["Epochs", "IMG_SIZE", "BATCH_SIZE", "LR"],
+        "Value": [30, 640, 20, 0.01]
     })
     st._legacy_table(chars_alt)
 
