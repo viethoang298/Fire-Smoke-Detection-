@@ -67,7 +67,7 @@ def load_yolov8_model():
 #    return yolov7.load(model_yolov7)
 
 # Load model based on user selection
-model_selection = "YOLOv8"
+
 if model_selection == "YOLOv8":
     try:
 
