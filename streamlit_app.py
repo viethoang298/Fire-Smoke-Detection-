@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 with st.sidebar:
-    model_selection = "YOLOv8" 
+    model_selection = st.selectbox("Choose a model:", ["YOLOv8", "YOLOv7"]) #  
     # Model selection dropdown
     st.header("Image Config")
     uploaded_file = st.file_uploader(
