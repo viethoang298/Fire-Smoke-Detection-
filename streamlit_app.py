@@ -10,7 +10,7 @@ import yolov7
 import tempfile
 #sys.path.append("yolov7")
 
-model_yolov8 = "YOLOv8"    #"models/yolov8/weights/fire_model.pt"
+model_yolov8 = "models/yolov8/weights/fire_model.pt"
 model_yolov7 = "models/yolov7/runs/train/exp/weights/best.pt"
 
 st.set_page_config(
@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 with st.sidebar:
-    model_selection = st.selectbox("Choose a model:", ["YOLOv8", "YOLOv7"]) #  
+    model_selection = "YOLOv8"    #st.selectbox("Choose a model:", ["YOLOv8", "YOLOv7"]) #  
     # Model selection dropdown
     st.header("Image Config")
     uploaded_file = st.file_uploader(
